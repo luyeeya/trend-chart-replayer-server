@@ -17,6 +17,8 @@ def load_chart_data(data_type):
     data_dict = OrderedDict({})
     for row in raw_data:
         key = row[0]  # 第一个元素作为键
+        if key == "close_ma": # 不加载 close_ma 数据
+            continue
         values = row[1:]  # 剩余元素作为值
         data_dict[key] = values
 
